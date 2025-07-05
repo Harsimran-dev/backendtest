@@ -1,5 +1,5 @@
-# Stage 1: Build the jar using Maven image with JDK 17
-FROM maven:3.8.7-openjdk-17-slim AS build
+# Stage 1: Build with Maven + JDK 17
+FROM maven:3.9.4-jdk-17 AS build
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ COPY src ./src
 
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run the jar using OpenJDK image
+# Stage 2: Run the jar with OpenJDK 17 slim
 FROM openjdk:17-jdk-slim
 
 WORKDIR /app
