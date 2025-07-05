@@ -1,5 +1,5 @@
-# Stage 1: Build the jar using Maven image
-FROM maven:3.8.7-openjdk-17 AS build
+# Stage 1: Build the jar using Maven image with JDK 17
+FROM maven:3.8.7-openjdk-17-slim AS build
 
 WORKDIR /app
 
