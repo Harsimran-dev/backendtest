@@ -14,13 +14,16 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         
-        config.addAllowedOrigin("http://localhost:4200");  // Your Angular frontend URL
+        // Allow your local Angular dev server and the deployed frontend site
+        config.addAllowedOrigin("http://localhost:4200");
+        config.addAllowedOrigin("https://harsimran-dev.github.io"); // Add deployed site origin (without path)
+        
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);  // Apply to all endpoints
+        source.registerCorsConfiguration("/**", config);
 
         return new CorsFilter(source);
     }
