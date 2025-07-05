@@ -1,5 +1,5 @@
 # Stage 1: Build with Maven + JDK 17
-FROM maven:3.9.4-jdk-17 AS build
+FROM maven:3.9.4-eclipse-temurin-17 AS build
 
 WORKDIR /app
 
